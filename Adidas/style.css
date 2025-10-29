@@ -1,0 +1,186 @@
+:root {
+    --color: rgb(67, 112, 171);
+    --image: url('t-shirt-blue.png');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+#white:checked~.container,
+#white:checked~.container .karta {
+    --color: gray;
+    --image: url("t-shirt-white.png");
+}
+
+#orange:checked~.container,
+#orange:checked~.container .karta {
+    --color: orange;
+    --image: url("t-shirt-orange.png");
+}
+
+#blue:checked~.container,
+#blue:checked~.container .karta {
+    --color: rgb(67, 112, 171);
+    --image: url("t-shirt-blue.png");
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    display: none;
+}
+
+.karta {
+    background-image: var(--image);
+    height: 500px;
+    width: 350px;
+    background-size: cover;
+    padding: 20px;
+    transition: transform 2.0s ease;
+}
+
+.container2 {
+    position: relative;
+    overflow: hidden;
+}
+
+.nakladka {
+    position: absolute;
+    background-color: white;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 50%;
+    width: 100%;
+    transition: top 1s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: top 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container2:hover .nakladka {
+    top: 50%;
+}
+
+.container2:hover .karta {
+    transform: scale(1.25);
+}
+
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.25);
+    }
+}
+
+.naglowek {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.price {
+    font-size: 20px;
+    color: var(--color);
+    margin-right: 10px;
+}
+
+h1 {
+    font-size: 1.0rem;
+    font-family: sans-serif;
+}
+
+h2 {
+    font-size: 1rem;
+    margin: 5px 0;
+    color: black;
+}
+
+p {
+    color: gray;
+    margin-top: 0;
+}
+
+.sizes {
+    display: flex;
+    color: var(--color);
+    align-items: center;
+    gap: 15px;
+    transition: color 1s ease;
+    margin-bottom: 5px;
+}
+
+.sizes div:nth-child(3) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: var(--color);
+    border-radius: 50%;
+    transition: background-color 1s ease;
+    width: 25px;
+    height: 25px;
+}
+
+.colors {
+    display: flex;
+    gap: 10px;
+}
+
+label {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 5px;
+    margin-bottom: 10px;
+}
+
+.colors label:nth-child(1) {
+    background-color: rgb(67, 112, 171);
+}
+
+.colors label:nth-child(3) {
+    background-color: gray;
+}
+
+.colors label:nth-child(2) {
+    background-color: orange;
+}
+
+.guziki {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    background-color: var(--color);
+    color: white;
+    padding: 8px;
+    width: 100px;
+    font-size: 15px;
+}
