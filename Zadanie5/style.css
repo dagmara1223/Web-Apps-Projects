@@ -1,0 +1,119 @@
+:root {
+    --bg-color: antiquewhite;
+    --card-color: white;
+    --text-color: black;
+    --btn-color: darkblue;
+    --toggle-bg: darkblue;
+    --toggle-circle: white;
+    --brdr: 3px solid black;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#switch:checked~.container {
+    --bg-color: rgb(46, 46, 99);
+    --card-color: rgb(46, 46, 99);
+    --text-color: white;
+    --btn-color: white;
+    --toggle-bg: white;
+    --toggle-circle: darkblue;
+    --brdr: none;
+    --box-shadow: none;
+}
+
+body {
+    font-family: serif;
+    margin: 0;
+    background-color: var(--bg-color);
+    transition: background-color 0.5s ease;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--bg-color);
+    transition: background-color 0.5s ease;
+}
+
+.karta {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: var(--card-color);
+    color: var(--text-color);
+    border-radius: 15px;
+    padding: 25px 35px;
+    box-shadow: var(--box-shadow);
+    transition: background-color 0.5s, color 0.5s;
+    max-width: 600px;
+    max-height: 600px;
+}
+
+.karta img {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    margin-right: 25px;
+    border: var(--brdr);
+}
+
+.informacje h3 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.rola {
+    font-weight: normal;
+}
+
+.btn {
+    padding: 7px 6px;
+    background-color: var(--btn-color);
+    color: var(--toggle-circle);
+    border-radius: 7px;
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#switch {
+    display: none;
+}
+
+.switch {
+    position: absolute;
+    top: 20%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.slider {
+    position: absolute;
+    background-color: var(--toggle-bg);
+    border-radius: 24px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: 0.4s;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    background-color: var(--toggle-circle);
+    border-radius: 50%;
+    height: 18px;
+    /* odnosi sie do wielkosci kolka */
+    width: 18px;
+    bottom: 3px;
+    left: 3px;
+    transition: 0.4s;
+}
+
+#switch:checked+.container .slider::before {
+    transform: translateX(22px);
+}
